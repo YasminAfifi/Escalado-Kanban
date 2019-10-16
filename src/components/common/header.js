@@ -18,7 +18,6 @@ import AddIcon from '@material-ui/icons/Add';
 import purple from '@material-ui/core/colors/purple';
 import HomeIcon from '@material-ui/icons/Home';
 
-//yasmin's code 
 
 
 const useStyles = makeStyles(theme => ({
