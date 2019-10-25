@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import HeaderApp from './components/common/header';
-
+import Board from './components/board';
 
 function App() {
   return (
 
-    <HeaderApp />
+    <Board />
+
 
   );
 }

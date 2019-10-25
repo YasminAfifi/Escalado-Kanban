@@ -15,8 +15,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import purple from '@material-ui/core/colors/purple';
 import HomeIcon from '@material-ui/icons/Home';
+import { Dashboard } from '@material-ui/icons';
 
 
 
@@ -95,7 +95,6 @@ const useStyles = makeStyles(theme => ({
 
 function HeaderApp() {
     const classes = useStyles();
-    const accent = purple['A400'];
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
@@ -131,14 +130,14 @@ function HeaderApp() {
     );
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ backgroundColor: "#f06292" }}>
+            <AppBar style={{ backgroundColor: "#f06292" }}>
                 <Toolbar >
-                    <Fab color="default" aria-label="add" className={classes.fab} size="small">
+                    <IconButton color="inherit" size="small">
                         <HomeIcon />
-                    </Fab>
+                    </IconButton>
 
 
-                    <Button variant="contained" size="small" color='default' >
+                    <Button variant="contained" size="small" color='default' style={{ marginLeft: 10 }} >
                         Boards
                     </Button>
 
@@ -156,7 +155,7 @@ function HeaderApp() {
                         />
                     </div>
                     <div className={classes.grow}>
-                        <h2 align="center"> Trello </h2>
+                        <h2 align="center"> Escalado Kanban </h2>
                     </div>
 
 
