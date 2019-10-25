@@ -5,6 +5,8 @@ import List from './list';
 import AddList from './forms/addList';
 import ProjLoader from './loader';
 import HeaderApp from './common/header';
+import { IconButton } from '@material-ui/core';
+import { ScatterPlot } from '@material-ui/icons';
 
 
 
@@ -105,7 +107,10 @@ class Board extends Component {
         return (
             <div className="bgpic" >
                 <div className="side">
-                    <span className="logo">Stories</span>
+                    <span className="logo">
+                        <IconButton size="small" color="default"><ScatterPlot /></IconButton>
+                        Stories
+                        </span>
                     <ul className="side-menu">
                         {listTable}
                     </ul>

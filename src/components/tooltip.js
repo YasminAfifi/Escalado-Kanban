@@ -8,7 +8,6 @@ import Fade from '@material-ui/core/Fade';
 class ProjTooltip extends Component {
     constructor(props) {
         super(props);
-        this.title = " ";
         this.toggle = this.toggle.bind(this);
         this.state = {
             tooltipOpen: false,
@@ -24,7 +23,7 @@ class ProjTooltip extends Component {
     render() {
         return (
             <Tooltip title={this.props.title} placement={this.props.placement} open={this.state.tooltipOpen} id={'Tooltip-' + this.props.id} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }}>
-                <span style={{ marginLeft: 25, }}>
+                <span style={{ marginLeft: 26 }}>
                     <IconButton color="default" size="small" id={'Tooltip-' + this.props.id} data-toggle="tooltip">
                         <HelpOutline />
                         <AddCard listType={this.props.listType} status={this.props.id} />
@@ -33,7 +32,7 @@ class ProjTooltip extends Component {
                 </span>
             </Tooltip >
 
-        );
+        )
     }
 
 
