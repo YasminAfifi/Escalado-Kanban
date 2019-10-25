@@ -8,7 +8,7 @@ import ProjLoader from './loader';
 class List extends Component {
     render() {
         return (
-            <div className="con">
+            <div>
                 <div className="space">
                     {/* <h2 className="list">{this.props.listName[0] ? this.props.listName[0].title : "Loading..."}</h2> */}
                 </div>
@@ -17,7 +17,7 @@ class List extends Component {
                         <div className="mcell-title story">
                             <IconButton size="small" color="default"><EmojiObjects /></IconButton>
                             Backlog
-                             <ProjTooltip title="Add Cards in Backlog List" id="1" placement="top" listType={this.props.listType} />
+                             <ProjTooltip edge="end" title="Add Cards in Backlog List" id="1" placement="top" listType={this.props.listType} />
 
                         </div>
                         <TaskCard cards={this.props.cards} loading={this.props.loading} filter="1" />

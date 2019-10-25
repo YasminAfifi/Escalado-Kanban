@@ -243,10 +243,6 @@ li .active:before {
   background-color: skyblue;
   box-shadow: 10px 10px 20px  slateblue;
   font-size: 15px;
-  margin: 50 -50px;
-  padding: 20px 20px 15px;
-  font-weight: bold;
-
 }
 .mcell-card {
   background-color: #fff;

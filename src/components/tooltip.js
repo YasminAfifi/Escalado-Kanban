@@ -27,11 +27,12 @@ class ProjTooltip extends Component {
                 <span>
                     <IconButton color="default" size="small" id={'Tooltip-' + this.props.id} data-toggle="tooltip">
                         <HelpOutline />
+                        <AddCard listType={this.props.listType} status={this.props.id} />
                     </IconButton>
                     {this.props.content}
-                    <AddCard listType={this.props.listType} status={this.props.id} />
                 </span>
             </Tooltip >
+
         );
     }
 
