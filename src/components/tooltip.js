@@ -24,7 +24,7 @@ class ProjTooltip extends Component {
     render() {
         return (
             <Tooltip title={this.props.title} placement={this.props.placement} open={this.state.tooltipOpen} id={'Tooltip-' + this.props.id} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }}>
-                <span>
+                <span style={{ marginLeft: 25, }}>
                     <IconButton color="default" size="small" id={'Tooltip-' + this.props.id} data-toggle="tooltip">
                         <HelpOutline />
                         <AddCard listType={this.props.listType} status={this.props.id} />

@@ -16,7 +16,7 @@ import Fade from '@material-ui/core/Fade';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
-import { Dashboard } from '@material-ui/icons';
+import { Dashboard, Add } from '@material-ui/icons';
 
 
 
@@ -155,17 +155,16 @@ function HeaderApp() {
                         />
                     </div>
                     <div className={classes.grow}>
-                        <h2 align="center"> Escalado Kanban </h2>
+                        <h2 align="center"> Kanban </h2>
                     </div>
 
 
 
 
-                    <Fab aria-label="add" className={classes.fab} size="small">
-                        <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Add">
-                            <AddIcon />
-                        </Tooltip>
-                    </Fab>
+                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Add">
+                        <IconButton size="small" color="inherit"><Add /></IconButton>
+                    </Tooltip>
+
 
 
                     <div className={classes.sectionDesktop}>
@@ -181,7 +180,7 @@ function HeaderApp() {
                             aria-controls={menuId}
                             aria-haspopup="true"
                             onClick={handleProfileMenuOpen}
-                            color="default"
+                            color="inherit"
                             size="medium"
                         >
                             <AccountCircle />
