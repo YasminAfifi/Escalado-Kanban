@@ -5,8 +5,13 @@ import React, { Component } from 'react'
 import ProjLoader from './loader';
 import { Card, CardContent } from '@material-ui/core';
 
-//  jQuery
-class TaskCard extends Component {
+interface TaskCardProps {
+    cards: any[];
+    loading: boolean;
+    filter: number;
+}
+
+class TaskCard extends Component<TaskCardProps> {
     //create a componentWillReceiveProps() method for drag and drop
     // api = id => {
     //     axios.delete('/Cards/delete/' + id)

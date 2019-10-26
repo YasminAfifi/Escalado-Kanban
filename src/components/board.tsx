@@ -1,16 +1,25 @@
-import React, { Component } from 'react'
+import { IconButton } from "@material-ui/core";
+import { ScatterPlot } from "@material-ui/icons";
+import React, { Component } from "react";
+import HeaderApp from "./common/header";
+import AddList from "./forms/addList";
 //import axios from 'axios'
 // import { Link } from 'react-router'
-import List from './list';
-import AddList from './forms/addList';
-import ProjLoader from './loader';
-import HeaderApp from './common/header';
-import { IconButton } from '@material-ui/core';
-import { ScatterPlot } from '@material-ui/icons';
+import Loader from "./loader";
+import List from "./list";
 
+interface BoardState {
+    open: boolean;
+    show: boolean;
+    cards: any[];
+    lists: any[];
+    err: string;
+    err2: string;
+    loading: boolean;
+    loadingList: boolean;
+}
 
-
-class Board extends Component {
+class Board extends Component<{}, BoardState> {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -18,10 +27,10 @@ class Board extends Component {
             show: true,
             cards: [],
             lists: [],
-            err: '',
-            err2: '',
+            err: "",
+            err2: "",
             loading: true,
-            loadingList: true
+            loadingList: true,
         };
 
         //this.getData = this.getData.bind(this)
@@ -82,7 +91,6 @@ class Board extends Component {
     //                 })
     //         })
 
-
     // }
     render() {
         let { lists, loadingList } = this.state;
@@ -96,38 +104,38 @@ class Board extends Component {
                         <span className="menu-text">{list.title}</span>
                         {/* </Link> */}
                     </li>
-                )
-            })
+                );
+            });
         else
-            listTable = <li>
-                <div className="loader">
-                    <ProjLoader />
-                </div>
-            </li>
+            listTable = (
+                <li>
+                    <div className="loader">
+                        <Loader />
+                    </div>
+                </li>
+            );
         return (
-            <div className="bgpic" >
+            <div className="bgpic">
                 <div className="side">
                     <span className="logo">
-                        <IconButton size="small" color="default"><ScatterPlot /></IconButton>
+                        <IconButton size="small" color="default">
+                            <ScatterPlot />
+                        </IconButton>
                         Stories
-                        </span>
-                    <ul className="side-menu">
-                        {listTable}
-                    </ul>
+                    </span>
+                    <ul className="side-menu">{listTable}</ul>
                     <div className="otherMenu">
                         <AddList />
                     </div>
                 </div>
-                <div className="con" >
+                <div className="con">
                     <HeaderApp />
 
-                    <List loading={this.state.loading} />
+                    <List cards={[]} loading={this.state.loading} />
                     {/* <List listName={this.state.lists.filter(i=>i.listId===parseInt(this.props.router.params.id))} listType={this.props.params.id} lists={this.state.lists} loading={this.state.loading}/> */}
                 </div>
             </div>
-        )
+        );
     }
-
-
 }
 export default Board;
