@@ -2,14 +2,16 @@ import { Card as MuiCard, CardContent } from "@material-ui/core";
 import React, { FC } from "react";
 import { Card } from "../types/Card";
 import { formatDisplayName } from "../utils/helper";
+import { makeStyles } from "@material-ui/core";
 
 interface CardViewProps {
     card: Card;
 }
 
 const CardView: FC<CardViewProps> = ({ card }) => {
+    const classes = useStyles();
     return (
-        <MuiCard>
+        <MuiCard className={classes.card}>
             <CardContent className="process">
                 <span className="card-name">
                     <span>{card.title}</span>
@@ -31,4 +33,11 @@ const CardView: FC<CardViewProps> = ({ card }) => {
         </MuiCard>
     );
 };
+
+const useStyles = makeStyles((theme) => ({
+    card: {
+        marginTop: theme.spacing(2)
+    }
+}));
+
 export default CardView;
