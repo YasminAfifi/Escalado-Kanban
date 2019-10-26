@@ -16,13 +16,7 @@ ul {
 /*
 new style
 */
-.bgpic{
-  position: relative;
-  width: 2000px;
-  height: 2000px;
-  background-image: url("./Images/Wallpaper.jpg");
 
-}
 .span.menu-text {
   display: inline-block;
   vertical-align: top;
