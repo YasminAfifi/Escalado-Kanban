@@ -14,6 +14,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import clsx from "clsx";
 import React, { FC, useState } from "react";
 import HeaderApp from "./common/header";
+import List from "./list";
 
 const Board: FC = () => {
     const [lists, setLists] = useState<any[]>([]);
@@ -66,7 +67,10 @@ const Board: FC = () => {
                     }); */}
                 </MuiList>
             </Drawer>
-            
+            <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
+                <List cards={[]} loading={loading} />
+            </main>
             {/* <div className="side">
                 <span className="logo">
                     <IconButton size="small" color="default">
@@ -85,7 +89,6 @@ const Board: FC = () => {
             </div> */}
         </div>
     );
-    
 };
 export default Board;
 
@@ -101,6 +104,7 @@ const useStyles = makeStyles(theme => ({
     container: {
         display: "flex",
     },
+    appBarSpacer: theme.mixins.toolbar,
 
     // root: {
     //     display: "flex",
@@ -156,10 +160,10 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,
     },
-    // content: {
-    //     flexGrow: 1,
-    //     padding: theme.spacing(3),
-    // },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
 }));
 
 // constructor(props, context) {
