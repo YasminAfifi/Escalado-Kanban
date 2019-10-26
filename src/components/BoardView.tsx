@@ -14,9 +14,14 @@ import MailIcon from "@material-ui/icons/Mail";
 import clsx from "clsx";
 import React, { FC, useState } from "react";
 import HeaderApp from "./common/header";
-import List from "./list";
+import ListWrapperView from "./ListWrapperView";
+import { Board } from "../types/Board";
 
-const Board: FC = () => {
+interface BoardViewProps {
+    board: Board;
+}
+
+const BoardView: FC<BoardViewProps> = props => {
     const [lists, setLists] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
     const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -69,7 +74,7 @@ const Board: FC = () => {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
-                <List cards={[]} loading={loading} />
+                <ListWrapperView lists={props.board.lists} />
             </main>
             {/* <div className="side">
                 <span className="logo">
@@ -90,7 +95,7 @@ const Board: FC = () => {
         </div>
     );
 };
-export default Board;
+export default BoardView;
 
 const drawerWidth = 200;
 const useStyles = makeStyles(theme => ({

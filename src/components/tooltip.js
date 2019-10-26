@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import AddCard from './forms/addCard';
-import { Tooltip } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
-import HelpOutline from '@material-ui/icons/HelpOutline';
-import Fade from '@material-ui/core/Fade';
+import React, { Component } from "react";
+import AddCard from "./forms/addCard";
+import { Tooltip } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import HelpOutline from "@material-ui/icons/HelpOutline";
+import Fade from "@material-ui/core/Fade";
 
 class ProjTooltip extends Component {
     constructor(props) {
@@ -16,25 +16,26 @@ class ProjTooltip extends Component {
 
     toggle() {
         this.setState({
-            tooltipOpen: !this.state.tooltipOpen
+            tooltipOpen: !this.state.tooltipOpen,
         });
     }
 
     render() {
         return (
-            <Tooltip title={this.props.title} placement={this.props.placement} open={this.state.tooltipOpen} id={'Tooltip-' + this.props.id} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }}>
+            <Tooltip
+                title={this.props.title}
+                placement={this.props.placement}
+                open={this.state.tooltipOpen}
+                id={"Tooltip-" + this.props.id}
+                TransitionComponent={Fade}
+                TransitionProps={{ timeout: 600 }}
+            >
                 <span style={{ marginLeft: 26 }}>
-                    <IconButton color="default" size="small" id={'Tooltip-' + this.props.id} data-toggle="tooltip">
-                        <HelpOutline />
-                        <AddCard listType={this.props.listType} status={this.props.id} />
-                    </IconButton>
+                    <AddCard listType={this.props.listType} status={this.props.id} />
                     {this.props.content}
                 </span>
-            </Tooltip >
-
-        )
+            </Tooltip>
+        );
     }
-
-
 }
 export default ProjTooltip;

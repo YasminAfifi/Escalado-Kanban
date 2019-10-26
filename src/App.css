@@ -189,24 +189,7 @@ li .active:before {
   overflow-x: hidden;
   max-height: 550px;
 }*/
-.story{
-  color:#4c4d61!important;
-}
-.story i,.card-name i {
-  float: right;
-  font-size: 18px;
-  padding: 3px;
-  cursor: pointer;
-}
-.mcell {
-  background-color: #f5f8fc;
-  width: 200px;
-  margin-left: 50px;
-  margin-right: 10px;
-  border-radius: 0 0 4px 4px;
-  display: inline-table;
-  box-shadow: 0px 3px 5px #bababa7d;
-}
+
 
 .mcolor1:before,.mcolor2:before,.mcolor3:before,.mcolor4:before,mcolor5:before {
   width: 100%;
@@ -232,22 +215,7 @@ li .active:before {
 .mcolor5:before{
   background: linear-gradient(to right, #c774e9 0%, #dc6a84 100%);
 }
-.mcell-title{
-  background-color: skyblue;
-  box-shadow: 10px 10px 20px  slateblue;
-  font-size: 16px;
-  align-content: center;
-}
-.mcell-card {
-  background-color: #fff;
-  padding: 4px 8px;
-  margin: 10px -6px;
-  margin-right: 100 -50px;
-  border-radius: 10px;
-  box-shadow: 15px 15px 25px teal;
-  list-style-type: inherit;
 
-}
 .otherMenu div{
   margin: 13px;
   display: grid;
