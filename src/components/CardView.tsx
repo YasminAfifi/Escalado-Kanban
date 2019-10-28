@@ -34,10 +34,10 @@ const CardView: FC<CardViewProps> = ({ card }) => {
     );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     card: {
-        marginTop: theme.spacing(2)
-    }
+        marginTop: theme.spacing(2),
+    },
 }));
 
 export default CardView;

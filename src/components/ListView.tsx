@@ -25,7 +25,7 @@ const ListView: FC<ListViewProps> = props => {
     );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     container: {
         width: 200,
         borderRadius: "0 0 4px 4px",

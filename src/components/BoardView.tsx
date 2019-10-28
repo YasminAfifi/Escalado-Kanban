@@ -106,14 +106,11 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "bold",
         fontSize: 14,
     },
+    appBarSpacer: theme.mixins.toolbar,
+
     container: {
         display: "flex",
     },
-    appBarSpacer: theme.mixins.toolbar,
-
-    // root: {
-    //     display: "flex",
-    // },
     // appBar: {
     //     zIndex: theme.zIndex.drawer + 1,
     //     transition: theme.transitions.create(["width", "margin"], {
