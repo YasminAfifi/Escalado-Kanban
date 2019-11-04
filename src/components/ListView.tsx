@@ -2,8 +2,10 @@ import React, { FC } from "react";
 import { List } from "../types/List";
 import CardView from "./CardView";
 import IconView from "./IconView";
-import ProjTooltip from "./tooltip";
-import { makeStyles, Typography, Paper } from "@material-ui/core";
+import ToolTipView from "./ToolTipView";
+import { makeStyles, Typography, Paper, IconButton, Button } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
+import { Card } from "../types/Card";
 
 interface ListViewProps {
     list: List;
@@ -16,7 +18,7 @@ const ListView: FC<ListViewProps> = props => {
             <Paper className={classes.header}>
                 <IconView name={props.list.icon} />
                 <Typography variant="h6">{props.list.title}</Typography>
-                <ProjTooltip id="1" title="Add Cards in Backlog List" placement="top" />
+                <ToolTipView id="1" title="Add Cards" list={props.list} />
             </Paper>
             {props.list.cards.map(card => (
                 <CardView key={card.id} card={card} />

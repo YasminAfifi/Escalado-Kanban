@@ -21,6 +21,7 @@ const ListWrapperView: FC<ListWrapperViewProps> = props => {
 const useStyles = makeStyles(theme => ({
     container: {
         display: "flex",
+        justifyContent: "space-between",
     },
 }));
 

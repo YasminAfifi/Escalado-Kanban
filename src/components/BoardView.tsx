@@ -10,10 +10,9 @@ import {
 } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import InboxIcon from "@material-ui/icons/Inbox";
-import MailIcon from "@material-ui/icons/Mail";
 import clsx from "clsx";
-import React, { FC, useState } from "react";
-import HeaderApp from "./common/header";
+import React, { FC, useState, useEffect } from "react";
+import HeaderView from "./common/HeaderView";
 import ListWrapperView from "./ListWrapperView";
 import { Board } from "../types/Board";
 
@@ -24,12 +23,11 @@ interface BoardViewProps {
 const BoardView: FC<BoardViewProps> = props => {
     const [lists, setLists] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const classes = useStyles();
     return (
         <div className={classes.container}>
-            <HeaderApp />
             <Drawer
                 variant="permanent"
                 className={clsx(classes.drawer, {
@@ -45,7 +43,7 @@ const BoardView: FC<BoardViewProps> = props => {
                 open={isDrawerOpen}
             >
                 <div className={classes.toolbar}>
-                    <IconButton onClick={() => setIsDrawerOpen(false)}>
+                    <IconButton onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
                         <ChevronRightIcon />
                     </IconButton>
                 </div>
@@ -72,7 +70,11 @@ const BoardView: FC<BoardViewProps> = props => {
                     }); */}
                 </MuiList>
             </Drawer>
-            <main className={classes.content}>
+            <main
+                className={clsx(classes.content, {
+                    [classes.contentShift]: isDrawerOpen,
+                })}
+            >
                 <div className={classes.appBarSpacer} />
                 <ListWrapperView lists={props.board.lists} />
             </main>
@@ -118,14 +120,14 @@ const useStyles = makeStyles(theme => ({
     //         duration: theme.transitions.duration.leavingScreen,
     //     }),
     // },
-    // appBarShift: {
-    //     marginLeft: drawerWidth,
-    //     width: `calc(100% - ${drawerWidth}px)`,
-    //     transition: theme.transitions.create(["width", "margin"], {
-    //         easing: theme.transitions.easing.sharp,
-    //         duration: theme.transitions.duration.enteringScreen,
-    //     }),
-    // },
+    appBarShift: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
     // menuButton: {
     //     marginRight: 36,
     // },
@@ -136,6 +138,7 @@ const useStyles = makeStyles(theme => ({
         width: drawerWidth,
         flexShrink: 0,
         whiteSpace: "nowrap",
+        marginTop: "60px",
     },
     drawerOpen: {
         width: drawerWidth,
@@ -165,6 +168,13 @@ const useStyles = makeStyles(theme => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
+    },
+    contentShift: {
+        transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
     },
 }));
 
