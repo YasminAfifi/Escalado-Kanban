@@ -57,17 +57,6 @@ const BoardView: FC<BoardViewProps> = props => {
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
-                    {/* let listTable;
-                    listTable = lists.map((list, index) => {
-                        return (
-                            <li key={index}>
-                                <Link to={`/list/${list.listId}`} activeClassName="active">
-                                <i className="fas fa-list-alt"></i>
-                                <span className={classes.menuText}>{list.title}</span>
-                                </Link>
-                            </li>
-                        );
-                    }); */}
                 </MuiList>
             </Drawer>
             <main
@@ -78,22 +67,6 @@ const BoardView: FC<BoardViewProps> = props => {
                 <div className={classes.appBarSpacer} />
                 <ListWrapperView lists={props.board.lists} />
             </main>
-            {/* <div className="side">
-                <span className="logo">
-                    <IconButton size="small" color="default">
-                        <ScatterPlot />
-                    </IconButton>
-                    Stories
-                </span>
-                <ul className="side-menu">{listTable}</ul>
-                <div className="otherMenu">
-                    <AddList />
-                </div>
-            </div>
-            <div className="con">
-                <List cards={[]} loading={loading} />
-                <List listName={this.state.lists.filter(i=>i.listId===parseInt(this.props.router.params.id))} listType={this.props.params.id} lists={this.state.lists} loading={this.state.loading}/>
-            </div> */}
         </div>
     );
 };
@@ -164,6 +137,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "flex-end",
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,
+        marginTop: "60px",
     },
     content: {
         flexGrow: 1,

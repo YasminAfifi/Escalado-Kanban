@@ -4,6 +4,8 @@ import ViewList from "@material-ui/icons/ViewList";
 import Loop from "@material-ui/icons/Loop";
 import BugReport from "@material-ui/icons/BugReport";
 import Done from "@material-ui/icons/Done";
+import CalendarToday from "@material-ui/icons/CalendarToday";
+import Schedule from "@material-ui/icons/Schedule";
 
 const IconView: FC<{ name: string }> = ({ name }) => {
     const icons = {
@@ -12,6 +14,8 @@ const IconView: FC<{ name: string }> = ({ name }) => {
         loop: Loop,
         bug: BugReport,
         done: Done,
+        calender: CalendarToday,
+        schedule: Schedule,
     };
     if (name && icons[name]) {
         return React.createElement(icons[name]);

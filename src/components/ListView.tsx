@@ -3,9 +3,7 @@ import { List } from "../types/List";
 import CardView from "./CardView";
 import IconView from "./IconView";
 import ToolTipView from "./ToolTipView";
-import { makeStyles, Typography, Paper, IconButton, Button } from "@material-ui/core";
-import { Add } from "@material-ui/icons";
-import { Card } from "../types/Card";
+import { makeStyles, Typography, Paper } from "@material-ui/core";
 
 interface ListViewProps {
     list: List;
