@@ -15,6 +15,7 @@ import React, { FC, useState, useEffect } from "react";
 import HeaderView from "./common/HeaderView";
 import ListWrapperView from "./ListWrapperView";
 import { Board } from "../types/Board";
+import Background from "../Images/Wallpaper2.jpg";
 
 interface BoardViewProps {
     board: Board;
@@ -64,7 +65,10 @@ const BoardView: FC<BoardViewProps> = props => {
                     [classes.contentShift]: isDrawerOpen,
                 })}
             >
+                <HeaderView />
+
                 <div className={classes.appBarSpacer} />
+
                 <ListWrapperView lists={props.board.lists} />
             </main>
         </div>
@@ -85,14 +89,9 @@ const useStyles = makeStyles(theme => ({
 
     container: {
         display: "flex",
+        height: "100vh",
+        backgroundImage: `url(${Background})`,
     },
-    // appBar: {
-    //     zIndex: theme.zIndex.drawer + 1,
-    //     transition: theme.transitions.create(["width", "margin"], {
-    //         easing: theme.transitions.easing.sharp,
-    //         duration: theme.transitions.duration.leavingScreen,
-    //     }),
-    // },
     appBarShift: {
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
@@ -101,17 +100,11 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
-    // menuButton: {
-    //     marginRight: 36,
-    // },
-    // hide: {
-    //     display: "none",
-    // },
+
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
         whiteSpace: "nowrap",
-        marginTop: "60px",
     },
     drawerOpen: {
         width: drawerWidth,
@@ -137,7 +130,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "flex-end",
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,
-        marginTop: "60px",
     },
     content: {
         flexGrow: 1,
@@ -151,77 +143,3 @@ const useStyles = makeStyles(theme => ({
         marginLeft: 0,
     },
 }));
-
-// constructor(props, context) {
-//     super(props, context);
-//     this.state = {
-//         open: false,
-//         show: true,
-//         cards: [],
-//         lists: [],
-//         err: "",
-//         err2: "",
-//         loading: true,
-//         loadingList: true,
-//     };
-
-//     //this.getData = this.getData.bind(this)
-// }
-
-// componentDidMount = () => {
-//     this.getListDetails();
-//     this.getData();
-//     setInterval(() => {
-//         this.getData();
-//     }, 2000);
-// }
-
-// getListDetails = () => {
-//     axios.get(`/list`)
-//         .then((r) => {
-//             this.setState({
-//                 list: r.data,
-//                 err2: ''
-//             })
-//         })
-//         .then(() => {
-//             this.setState({
-//                 loadingList: false
-//             })
-//         })
-//         .catch((e) => {
-//             this.setState({
-//                 loadingList: false,
-//                 err2: e
-//             })
-//         })
-
-// }
-// getData = () => {
-//     axios.get(`/cards/${this.props.params.id}`)
-//         .then((r) => {
-//             this.setState({
-//                 cards: r.data,
-//                 err: ''
-//             })
-//         })
-//         .then(() => {
-//             this.setState({
-//                 loading: false
-//             })
-//         })
-//         .catch((e) => {
-//             if (!e.response) {
-//                 this.setState({
-//                     loading: true,
-//                     err: e
-//                 })
-//             }
-//             else
-//                 this.setState({
-//                     loading: false,
-//                     err: e
-//                 })
-//         })
-
-// }

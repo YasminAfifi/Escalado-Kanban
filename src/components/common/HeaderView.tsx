@@ -13,16 +13,11 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import Fade from "@material-ui/core/Fade";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import HomeIcon from "@material-ui/icons/Home";
-import { Dashboard, Add } from "@material-ui/icons";
-import { AppHeader } from "../../types/AppHeader";
+import { Add } from "@material-ui/icons";
 import { Typography } from "@material-ui/core";
 
-interface HeaderViewProps {
-    // header: AppHeader;
-}
+interface HeaderViewProps {}
 
 const HeaderView: FC<HeaderViewProps> = props => {
     const classes = useStyles();
@@ -57,8 +52,8 @@ const HeaderView: FC<HeaderViewProps> = props => {
         </Menu>
     );
     return (
-        <div className={classes.grow}>
-            <AppBar className={classes.appBar}>
+        <div className={classes.appBar}>
+            <AppBar position="static">
                 <Toolbar>
                     <IconButton color="inherit" size="small">
                         <HomeIcon />
@@ -87,7 +82,7 @@ const HeaderView: FC<HeaderViewProps> = props => {
                         />
                     </div>
                     <div className={classes.grow}>
-                        <Typography className={classes.title} variant="h6" noWrap>
+                        <Typography className={classes.title} variant="h5" noWrap>
                             Escalado Kanban
                         </Typography>
                     </div>
@@ -131,6 +126,8 @@ const HeaderView: FC<HeaderViewProps> = props => {
         </div>
     );
 };
+
+export default HeaderView;
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -199,11 +196,9 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(2),
     },
     appBar: {
-        backgroundColor: "#f06292",
-        
+        display: "flex",
     },
     projectTitle: {
         flexWrap: "inherit",
     },
 }));
-export default HeaderView;
